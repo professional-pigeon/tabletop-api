@@ -1,2 +1,0 @@
-class CampaignController < ApplicationController
-end
