@@ -1,8 +1,8 @@
 class Campaign < ApplicationRecord
   belongs_to :user
-  has_many :locations
-  has_many :characters, as: :char_place
-  has_many :notes, as: :note_place
+  has_many :locations, dependent: :destroy
+  has_many :characters, as: :char_place, dependent: :destroy
+  has_many :notes, as: :note_place, dependent: :destroy
 
   def get_player_characters
     @characters = []
