@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :locations, only: %i[create show update destroy]
     get '/campaign/locations/:campaign_id', to: 'locations#index'
     resources :characters, only: %i[index create show update destroy]
+    resources :notes, only: %i[create update destroy]
   end
 end
