@@ -10,6 +10,7 @@ class Character < ApplicationRecord
     elf: 'Elf',
     genasi: 'Genasi',
     dwarf: 'Dwarf',
-    halfling: 'Halfling'
+    halfling: 'Halfling',
+    other: 'Other'
   }
 end
