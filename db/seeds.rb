@@ -30,7 +30,7 @@ end
 def generate_city_areas(inst)
   x = 0
   while x <= 4
-    loc = Location.create(name: Faker::Lorem.word, description: Faker::Lorem.paragraph(sentence_count: 1), location_type: Faker::Lorem.word, upper_location: inst)
+    loc = Location.create(name: Faker::Lorem.word, description: Faker::Lorem.paragraph(sentence_count: 1), location_type: Faker::Lorem.word, upper_location: inst, campaign_id: inst.campaign_id)
     generate_notes(loc)
     generate_characters(loc, 2)
     x = x + 1
@@ -40,7 +40,7 @@ end
 def generate_cities(inst)
   x = 0
   while x <= 9
-    loc = Location.create(name: Faker::Games::DnD.city, description: Faker::Lorem.paragraph(sentence_count: 1), location_type: 'City', upper_location: inst)
+    loc = Location.create(name: Faker::Games::DnD.city, description: Faker::Lorem.paragraph(sentence_count: 1), location_type: 'City', upper_location: inst, campaign_id: inst.campaign_id)
     generate_notes(loc)
     generate_city_areas(loc)
     generate_characters(loc, 2)
