@@ -8,7 +8,7 @@ class CampaignBlueprint < Blueprinter::Base
       campaign.notes.order(updated_at: 'desc')
     end
   
-    association :locations, blueprint: LocationBlueprint, view: :extended do |campaign|
+    association :locations, blueprint: LocationBlueprint, view: :with_inner_locations do |campaign|
       campaign.get_highest_level_locations
     end
 

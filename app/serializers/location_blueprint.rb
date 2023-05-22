@@ -7,10 +7,6 @@ class LocationBlueprint < Blueprinter::Base
     location.notes.order(updated_at: 'desc')
   end
   
-  association :inner_locations, blueprint: LocationBlueprint do |location|
-    location.inner_locations
-  end
-  
   field :upper_location do |location|
     ul = location.upper_location
     if (!ul)
@@ -24,7 +20,16 @@ class LocationBlueprint < Blueprinter::Base
     association :characters, blueprint: CharacterBlueprint
   end
 
+  view :with_inner_locations do 
+    association :inner_locations, blueprint: LocationBlueprint do |location|
+      location.inner_locations
+    end
+  end
+
   view :extended do
     association :characters, blueprint: CharacterBlueprint
+    association :inner_locations, blueprint: LocationBlueprint, view: :extended do |location|
+      location.inner_locations
+    end
   end
 end
